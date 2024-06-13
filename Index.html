@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  *{
+    margin:0px;
+  }
+  .container{
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('Calci-bg.jpg');
+    background-size: cover;
+    box-sizing:border-box;
+  }
+  .calculator{
+    background-color:rgba(255,255,255,0.1);
+    padding:20px;
+    display:grid;
+    grid-template-columns: repeat(4,68px);
+    box-shadow: -5px -5px 12px rgba(0,0,0,.15),
+                 5px 5px 12px rgba(0,0,0,.15),
+                 -5px 5px 12px rgba(0,0,0,.15),
+                 5px -5px 12px rgba(0,0,0,.15);
+    border-radius: 20px;
+  }
+  input{
+    background-color:#00bbcc;
+    grid-column: span 4;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border:none;
+    box-shadow:inset 5px 5px 2px rgba(0,0,0,.3),
+    inset -5px -5px 5px #00eaff,
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  *{
+    margin:0px;
+  }
+  .container{
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('Calci-bg.jpg');
+    background-size: cover;
+    box-sizing:border-box;
+  }
+  .calculator{
+    background-color:rgba(255,255,255,0.1);
+    padding:20px;
+    display:grid;
+    grid-template-columns: repeat(4,68px);
+    box-shadow: -5px -5px 12px rgba(0,0,0,.15),
+                 5px 5px 12px rgba(0,0,0,.15),
+                 -5px 5px 12px rgba(0,0,0,.15),
+                 5px -5px 12px rgba(0,0,0,.15);
+    border-radius: 20px;
+  }
+  input{
+    background-color:#00bbcc;
+    grid-column: span 4;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border:none;
+    box-shadow:inset 5px 5px 2px rgba(0,0,0,.3),
+    inset -5px -5px 5px #00eaff,
+    5px 5px 12px rgba(0,0,0,.1);
+    font-size: 300%;
+    text-align:end;
+    padding:20px;
+  }
+  button{
+    background-color:#00bbcc;
+    margin:10px;
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:50%;
+    font-size:25px;
+    font-weight: 500;
+    font-style:italic;
+    text-shadow: 2px 2px 2px rgba(0,0,0,.2);
+    box-shadow:-5px -5px 12px rgba(255,255,255),
+                5px 5px 10px rgba(255,255,255),
+                inset 2px 2px 2px rgba(0,0,0,.2),
+                inset -3px -3px 1px #00eaff;
+  }
+  button:hover{
+    font-size:30px;
+    transition:0.5s;
+    cursor:pointer;
+  }
+  .equal{
+    
+   width:120px;
+    border-radius:20px;
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="calculator">
+      <input type="text" placeholder="0" id="output">
+      <button onclick="clearInput()">Cl</button>
+      <button onclick="deleteInput()">del</button>
+      <button onclick="display('%')">%</button>
+      <button onclick="display('/')">/</button>
+      <button onclick="display('7')">7</button>
+      <button onclick="display('8')">8</button>
+      <button onclick="display('9')">9</button>
+      <button onclick="display('*')">*</button>
+      <button onclick="display('4')">4</button>
+      <button onclick="display('5')">5</button>
+      <button onclick="display('6')">6</button>
+      <button onclick="display('-')">-</button>
+      <button onclick="display('1')">1</button>
+      <button onclick="display('2')">2</button>
+      <button onclick="display('3')">3</button>
+      <button onclick="display('+')">+</button>
+      <button onclick="display('.')">.</button>
+      <button onclick="display('0')">0</button>
+      <button onclick="calculate()" class="equal">=</button>
+    </div>
+  </div>
+</body>
+<script>
+  let output=document.querySelector('#output');
+  function display(num){
+    output.value += num;
+  }
+  function calculate(){
+    try{
+      output.value=eval(output.value);
+    }
+    catch(err){
+      alert("invalid");
+    }
+  }
+  function clearInput(){
+     output.value='';
+  }
+  function deleteInput(){
+    output.value=output.value.slice(0,-1);
+  }
+</script>
+</html>
